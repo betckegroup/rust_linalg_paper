@@ -1,0 +1,141 @@
+% SIAM Article Template
+\documentclass[review,hidelinks,onefignum,onetabnum]{siamart220329}
+
+% Information that is shared between the article and the supplement
+% (title and author information, macros, packages, etc.) goes into
+% ex_shared.tex. If there is no supplement, this file can be included
+% directly.
+
+\usepackage{lipsum}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{algorithmic}
+\ifpdf
+  \DeclareGraphicsExtensions{.eps,.pdf,.png,.jpg}
+\else
+  \DeclareGraphicsExtensions{.eps}
+\fi
+
+% Add a serial/Oxford comma by default.
+\newcommand{\creflastconjunction}{, and~}
+
+% Used for creating new theorem and remark environments
+\newsiamremark{remark}{Remark}
+\newsiamremark{hypothesis}{Hypothesis}
+\crefname{hypothesis}{Hypothesis}{Hypotheses}
+\newsiamthm{claim}{Claim}
+
+% Sets running headers as well as PDF title and authors
+\headers{Scientific Computing with Rust}{T. Betcke, J. Brown, K.. Gopalakrishnan, M. Scroggs, and P. Tsrunchev}
+
+% Title. If the supplement option is on, then "Supplementary Material"
+% is automatically inserted before the title.
+\title{Novel linear algebra abstractions with Rust\thanks{Submitted to the editors DATE.
+\funding{This work was funded by EPSRC Grants...}}}
+
+% Authors: full names plus addresses.
+\author{Timo Betcke\thanks{Department of Mathematics and Advanced Research Computing Centre, University College London, London, UK 
+  (\email{t.betcke@ucl.ac.uk}).}
+\and Jed Brown\thanks{Department of Computer Science, University of Colorado Boulder, CO
+  (\email{jed@jedbrown.org}).}
+  \and Krishnakumar Gopalakrishnan\thanks{Advanced Research Computing Centre, University College London, London, UK (\email{krishna.kumar@ucl.ac.uk}).}
+  \and Matthew Scroggs\thanks{Department of Mathematics and Advanced Research Computing Centre, University College London, London, UK (\email{matthew.scroggs.14@ucl.ac.uk}).}
+  \and Peter Tsrunchev \thanks{Advanced Research Computing Centre, University College London, London, UK (\email{p.tsrunchev@ucl.ac.uk}).}}
+
+%\and Jane E. Smith\footnotemark[3]}
+
+\usepackage{amsopn}
+\DeclareMathOperator{\diag}{diag}
+
+% Optional PDF information
+\ifpdf
+\hypersetup{
+  pdftitle={Scientific Computing with Rust},
+  pdfauthor={T. Betcke, J. Brown, K.. Gopalakrishnan, M. Scroggs, and P. Tsrunchev}
+}
+\fi
+
+% The next statement enables references to information in the
+% supplement. See the xr-hyperref package for details.
+
+%\externaldocument[][nocite]{ex_supplement}
+
+% FundRef data to be entered by SIAM
+%<funding-group specific-use="FundRef">
+%<award-group>
+%<funding-source>
+%<named-content content-type="funder-name"> 
+%</named-content> 
+%<named-content content-type="funder-identifier"> 
+%</named-content>
+%</funding-source>
+%<award-id> </award-id>
+%</award-group>
+%</funding-group>
+
+\begin{document}
+
+\maketitle
+
+% REQUIRED
+\begin{abstract}
+Since its first stable release in 2015 Rust has quickly developed into a widely used systems programming language. It is based on a modern language design with a unique memory safety model. Many of the Rust features also make this language ameniable for scientific computing applications. In this paper we discuss Rust features in the context of scientific computing and then discuss their application to the design of novel linear algebra abstractions based on the Traits system in Rust, which allows a very convenient way to express linear algebra independently of underlying implementations, making it possible to design high-performing linear algebra frameworks independently on whether the underlying objects are vectors or functions.
+
+\end{abstract}
+
+% REQUIRED
+\begin{keywords}
+example, \LaTeX
+\end{keywords}
+
+% REQUIRED
+\begin{MSCcodes}
+68Q25, 68R10, 68U05
+\end{MSCcodes}
+
+\section{Introduction}
+
+
+\section{An overview of Rust}
+
+
+\section{Low-level matrix abstractions}
+\label{sec:matrix_abstractions}
+
+\begin{itemize}
+\item Traits that define matrices
+\item Expression templates
+\item Interfacing with Lapack/etc.
+\end{itemize}
+
+\section{Generalising from vectors and matrices}
+\label{sec:generic_traits}
+
+\begin{itemize}
+\item Matrices vs quasi-matrices, function spaces, etc.
+\item Traits for generic function spaces, bases, inner products, etc.
+\end{itemize}
+
+\section{Generic algorithmic design}
+\label{sec:generic_algorithms}
+
+\begin{itemize}
+\item Householder QR Decomposition
+\item Arnoldi Method and GMRES
+\item Other nice examples?
+\end{itemize}
+
+\section{Applications to orthogonal polynomials}
+\label{sec:orthogonal_polynomials}
+
+Worked out code example for e.g. Chebychev polynomial spaces, etc.
+
+\section{Conclusions}
+
+
+
+
+\bibliographystyle{siamplain}
+\bibliography{references}
+\end{document}
